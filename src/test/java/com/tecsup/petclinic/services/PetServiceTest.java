@@ -35,12 +35,14 @@ public class PetServiceTest {
 		Pet pet = null;
 		
 		try {
+			
 			pet = petService.findById(ID);
+			
 		} catch (PetNotFoundException e) {
-			fail(e.getMessage());
+			assertThat(e.getMessage(), false);
 		}
-		
 		logger.info("" + pet);
+
 		assertThat(pet.getName(), is(NAME));
 
 	}
@@ -174,14 +176,16 @@ public class PetServiceTest {
 		try {
 			petService.delete(pet.getId());
 		} catch (PetNotFoundException e) {
-			fail(e.getMessage());
+			assertThat(e.getMessage(), false);
 		}
 			
 		try {
 			petService.findById(pet.getId());
-			fail("Pet id = " + pet.getId() + " has not delete");
+			assertThat(true, is(false));
 		} catch (PetNotFoundException e) {
+			assertThat(true, is(true));
 		} 				
 
 	}
 }
+
