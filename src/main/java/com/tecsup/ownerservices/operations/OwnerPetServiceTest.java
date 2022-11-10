@@ -5,7 +5,7 @@ import java.util.List;
 import com.tecsup.ownerservices.entities.Owner;
 import com.tecsup.ownerservices.expection.OwnerNotFoundException;
 
-public interface OwnerSevices {
+public interface OwnerPetServiceTest {
 	
 	/**
 	 * 
